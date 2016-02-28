@@ -25,4 +25,9 @@ require('./apis/characters')(Application);
 require('./apis/classes')(Application);
 require('./apis/races')(Application);
 require('./apis/users')(Application);
-module.exports = Application;
+
+let client;
+module.exports = client ||
+    function (apiKey, secret, options) {
+        client = new Application(apiKey, secret, options);
+    };
