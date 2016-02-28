@@ -1,8 +1,8 @@
 {
-  "name": "DisGame-api-lib",
-  "version": "1.0.2",
+  "name": "disgame-api",
+  "version": "1.0.3",
   "description": "A wrapper library which makes using DisGame API easier.",
-  "main": "index.js",
+  "main": "lib/disgame-api",
   "engines": {
     "node": "5.7.0",
     "npm": "3.7.3"
@@ -11,11 +11,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Pascal Luttgens <pascal.luttgens@hotmail.fr>",
-  "license": {
-    "type": "MIT",
-    "url": "https://opensource.org/licenses/MIT"
-  },
+  "license": "MIT",
   "dependencies": {
-    "request": "^2.69.0"
+    "bluebird": "^3.3.3",
+    "request-promise": "^2.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/GenjitsuGame/disgame-api-wrapper.git"
   }
 }
