@@ -1,6 +1,6 @@
 {
   "name": "DisGame-api-lib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A wrapper library which makes using DisGame API easier.",
   "main": "index.js",
   "engines": {

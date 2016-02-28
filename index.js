@@ -10,11 +10,7 @@ function Application(apiKey, secret, options) {
     this.request = request.defaults({ headers: { authorization: this.apiKey}, json: true});
     this.getMe((err, me) => {
         if (err) { throw err; }
-        console.log(err ||me);
         this.me = me;
-        this.registerUser('141332760542314497', (err, user) => {
-            console.log(err || user);
-        })
     });
 }
 
