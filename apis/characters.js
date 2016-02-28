@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function(Application) {
-    Application.prototype.createCharacter = function (userId, params, callback) {
+module.exports = function() {
+    this.createCharacter = (userId, params, callback) => {
         this._checkScope('game_client')((callback) => {
             const sig = this._sign(params);
             this.request({
@@ -14,7 +14,7 @@ module.exports = function(Application) {
             });
         }, callback);
     };
-    Application.prototype.getCharacter = function (characterId, callback) {
+    this.getCharacter = (characterId, callback) => {
         this._checkScope('data_api')((callback) => {
             this.request({
                 url: this.url + '/characters/' + characterId,
@@ -24,7 +24,7 @@ module.exports = function(Application) {
             });
         }, callback);
     };
-    Application.prototype.getCharacters = function (params, callback) {
+    this.getCharacters = (params, callback) =>{
         this._checkScope('data_api')((callback) => {
             this.request({
                 url: this.url + '/characters',
@@ -35,7 +35,7 @@ module.exports = function(Application) {
             });
         }, callback);
     };
-    Application.prototype.getUserCharacters = function (discordId, params, callback) {
+    this.getUserCharacters = (discordId, params, callback) => {
         this._checkScope('data_api')((callback) => {
             this.request({
                 url: this.url + '/users/' + discordId + '/characters',

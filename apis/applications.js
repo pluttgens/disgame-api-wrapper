@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function(Application) {
-    Application.prototype.getApplications = function (params, callback) {
+module.exports = function() {
+    this.getApplications = (params, callback) => {
         this._checkScope('admin')((callback) => {
             this.request({
                 url: this.url + '/applications',
@@ -12,10 +12,10 @@ module.exports = function(Application) {
             });
         }, callback);
     };
-    Application.prototype.getMe = function (callback) {
+    this.getMe = (callback) => {
         this.request({
             url: this.url + '/@me',
-            method: 'GET',
+            method: 'GET'
         }, (err, res, body) => {
             callback(err, body);
         });

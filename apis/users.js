@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function(Application) {
-    Application.prototype.getMyUsers = function (params, callback) {
+module.exports = function() {
+    this.getMyUsers = (params, callback) => {
         this._checkScope('data_api')((callback) => {
             this.request({
                 url: this.url + '/@me/users',
@@ -12,7 +12,7 @@ module.exports = function(Application) {
             });
         }, callback);
     };
-    Application.prototype.getUser = function (discordId, callback) {
+    this.getUser = (discordId, callback) => {
         this._checkScope('data_api')((callback) => {
             this.request({
                 url: this.url + '/users/' + discordId,
@@ -22,18 +22,18 @@ module.exports = function(Application) {
             });
         }, callback);
     };
-    Application.prototype.getUsers = function (params, callback) {
+    this.getUsers = (params, callback) => {
         this._checkScope('data_api')((callback) => {
             this.request({
                 url: this.url + '/users',
                 method: 'GET',
-                qs: params,
+                qs: params
             }, (err, res, body) => {
                 callback(err, body);
             });
         }, callback);
     };
-    Application.prototype.registerUser = function (discordId, callback) {
+    this.registerUser = (discordId, callback) => {
         this._checkScope('game_client')((callback) => {
             const sig = this._sign({discord_id: discordId});
             this.request({
@@ -46,7 +46,7 @@ module.exports = function(Application) {
             });
         }, callback);
     };
-    Application.prototype.unregisterUser = function (discordId, callback) {
+    this.unregisterUser = (discordId, callback) => {
         this._checkScope('game_client')((callback) => {
             const sig = this._sign({discord_id: discordId});
             this.request({

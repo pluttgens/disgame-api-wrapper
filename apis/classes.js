@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function(Application) {
-    Application.prototype.getClasses = function (params, callback) {
+module.exports = function() {
+    this.getClasses = (params, callback) => {
         this._checkScope('data_api')((callback) => {
             this.request({
                 url: this.url + '/classes',

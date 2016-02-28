@@ -1,7 +1,18 @@
 'use strict';
 const request = require('request');
 
-function Application(apiKey, secret, options) {
+const disgameClient = module.exports;
+
+require('./utils/scopes').call(disgameClient);
+require('./utils/sign').call(disgameClient);
+require('./apis/applications').call(disgameClient);
+require('./apis/characters').call(disgameClient);
+require('./apis/classes').call(disgameClient);
+require('./apis/races').call(disgameClient);
+require('./apis/users').call(disgameClient);
+
+
+disgameClient.connect = (apiKey, secret, options) => {
     this.apiKey = apiKey;
     this.secret = secret;
     options = options || {};
@@ -12,18 +23,4 @@ function Application(apiKey, secret, options) {
         if (err) { throw err; }
         this.me = me;
     });
-}
-
-require('./utils/scopes')(Application);
-require('./utils/sign')(Application);
-require('./apis/applications')(Application);
-require('./apis/characters')(Application);
-require('./apis/classes')(Application);
-require('./apis/races')(Application);
-require('./apis/users')(Application);
-
-let client;
-module.exports = client ||
-    function (apiKey, secret, options) {
-        client = new Application(apiKey, secret, options);
-    };
+};

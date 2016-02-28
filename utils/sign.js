@@ -1,8 +1,8 @@
 'use strict';
 const crypto = require('crypto');
 
-module.exports = function (Application) {
-    Application.prototype._sign = function (params) {
+module.exports = function () {
+    this._sign = (params) => {
         const hmac = crypto.createHmac('sha256', this.secret);
         params.api_key = this.apiKey;
         const keys = [];

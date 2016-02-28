@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function(Application) {
-    Application.prototype.getRaces = function (params, callback) {
+module.exports = function() {
+    this.getRaces = (params, callback) => {
         this._checkScope('data_api')((callback) => {
             this.request({
                 url: this.url + '/races',
