@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = function(Application) {
     Application.prototype.getMyUsers = function (params, callback) {
         this._checkScope('data_api')((callback) => {

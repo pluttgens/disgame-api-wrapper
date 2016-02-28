@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = function(Application) {
     Application.prototype.getApplications = function (params, callback) {
         this._checkScope('admin')((callback) => {

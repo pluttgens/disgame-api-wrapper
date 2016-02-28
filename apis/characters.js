@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = function(Application) {
     Application.prototype.createCharacter = function (userId, params, callback) {
         this._checkScope('game_client')((callback) => {
