@@ -1,6 +1,6 @@
 {
   "name": "disgame-api",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A wrapper library which makes using DisGame API easier.",
   "main": "lib/disgame-api",
   "engines": {
